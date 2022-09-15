@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Su banco</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="estilos.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Banco UN</h1>
+        <nav>
+            <a href="index.html"><button>Iniciar Sesión</button></a>
+            <button>Registrarse</button>
+        </nav>
+    </div>
+        
+    <div class="signUp_user">
+        <div class="container_signUp_user">
+            <h2>Apertura de cuenta</h2>
+            <form v-on:submit.prevent="processSignUp" >
+                <input type="number" name="userId" placeholder="Documento del usuario">
+                <br>
+                <input type="number" name="id" placeholder="Número de cuenta">
+                <br>
+                <button type="submit">Crear cuenta</button>
+            </form>
+        </div>
+    </div>
+        
+    <footer>
+        <h2>Misión TIC 2022</h2>
+    </footer>
+
+</body>
+</html>
