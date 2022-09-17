@@ -2,7 +2,7 @@ body{
     margin: 0 0 0 0;
 }
 
-.header{
+header{
     margin: 0%;
     padding: 0;
     width: 100%;
@@ -15,12 +15,17 @@ body{
     align-items: center;
 }
 
-.header h1{
+header h1{
     width: 20%;
     text-align: center;
 }
 
-.header nav {
+header h1 a {
+    text-decoration: none;
+    color:#E5E7E9;
+}
+
+header nav {
     height: 100%;
     width: 20%;
     display: flex;
@@ -29,7 +34,7 @@ body{
     font-size: 20px;
 }
 
-.header nav button{
+header nav button{
     color: #E5E7E9;
     background: #283747;
     border: 1px solid #E5E7E9;
@@ -37,10 +42,14 @@ body{
     padding: 10px 20px;
 }
 
-.header nav button:hover{
+header nav button:hover{
     color: #283747;
     background: #E5E7E9;
     border: 1px solid #E5E7E9;
+}
+
+main {
+    margin: 2% 5%;
 }
 
 footer{

@@ -18,15 +18,15 @@
         </nav>
     </header>
         
-    <div class="signUp_user">
-        <div class="container_signUp_user">
-            <h2>Apertura de cuenta</h2>
-            <form v-on:submit.prevent="processSignUp" >
-                <input type="number" name="userId" placeholder="Documento del usuario">
+    <div class="signUp_user" id="info">
+        <div class="container_signUp_user" id="formData">
+            <h2>Iniciar sesión</h2>
+            <form name="login" method="post">
+                <input type="email" name="email" placeholder="Correo electrónico">
                 <br>
-                <input type="number" name="id" placeholder="Número de cuenta">
+                <input type="password" name="password" placeholder="Contraseña">
                 <br>
-                <input type="submit" value="Crear cuenta">
+                <input id='enviar' type="submit" value="Ingresar">
             </form>
         </div>
     </div>
@@ -35,5 +35,6 @@
         <h2>Misión TIC 2022</h2>
     </footer>
 
+    <script src="js/login.js"></script>
 </body>
 </html>

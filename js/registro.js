@@ -48,7 +48,7 @@ function validar_datos(evt) {
     const lname = document.registro.lastName.value.trim();
     const email = document.registro.email.value.trim();
     const password = document.registro.password.value.trim();
-    
+
     let result = validar_cedula(id);
     if (!result) {
         alert("Cédula no es válida");
@@ -95,7 +95,7 @@ function validar_datos(evt) {
 }
 
 function sendData(data) {
-    console.log(JSON.stringify(data));
+    console.log(data);
     fetch(newCustomerURL, {
         method: "POST",
         headers: {
@@ -103,20 +103,20 @@ function sendData(data) {
         },
         body: data
     })
-    .then(response => {
-        if (response.ok)
-          return response.text()
-        else
-          throw new Error(response.status);
-      })
-      .then(data => {
-        console.log("Resultado: " + data);
-        handleSuccess();
-      })
-      .catch(err => {
-        console.error("ERROR: ", err.message)
-        handleError();
-      });
+        .then(response => {
+            if (response.ok)
+                return response.text()
+            else
+                throw new Error(response.status);
+        })
+        .then(data => {
+            console.log("Resultado: " + data);
+            handleSuccess();
+        })
+        .catch(err => {
+            console.error("ERROR: ", err.message)
+            handleError();
+        });
 }
 
 function handleSuccess() {
@@ -126,14 +126,14 @@ function handleSuccess() {
     const areaMensaje = document.getElementById("info");
     areaMensaje.appendChild(successMesage);
 }
-  
-  function handleError() {
+
+function handleError() {
     document.querySelector("#formData").remove();
     const errorMesage = document.createElement("p");
     errorMesage.textContent = "No se pudo crear el cliente. Intente luego.";
     const areaMensaje = document.getElementById("info");
     areaMensaje.appendChild(errorMesage);
 }
-  
+
 // --------------------
 document.registro.addEventListener('submit', validar_datos);
