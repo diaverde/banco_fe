@@ -5,8 +5,14 @@ function getCustomer() {
     const parsedUrl = new URL(window.location.href);
     const id = parsedUrl.searchParams.get("id");
     //console.log(id);
+    const token = sessionStorage.getItem('accessToken');
+    console.log(token);
 
-    fetch(getCustomerURL + id)
+    fetch(getCustomerURL + id, {
+        headers: {
+            "Authorization": "Bearer " + token
+        }
+    })
         .then(response => {
             if (response.ok)
                 return response.text()
@@ -19,7 +25,8 @@ function getCustomer() {
             handleCustomer(customer);
         })
         .catch(err => {
-            console.error("ERROR: ", err.message)
+            console.error("ERROR: ", err.message);
+            handleError();
         });
 }
 
@@ -28,9 +35,9 @@ function handleCustomer(cust) {
     const accountDivs = [];
     cust.accounts.forEach((acc, index) => {
         const div = `
-            <h4>Cuenta: ${index + 1}</h4>    
-            <h4>Número de cuenta: ${acc.accNumber}</h4>
-            <h4>Saldo: ${acc.balance}</h4>`;
+            <h5>Cuenta: ${index + 1}</h5>
+            <h5>Número de cuenta: ${acc.accNumber}</h5>
+            <h5>Saldo: ${acc.balance}</h5>`;
         accountDivs.push(div);
     });
     custData.innerHTML =

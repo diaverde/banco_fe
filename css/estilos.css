@@ -122,3 +122,20 @@ footer h2{
     background: crimson;
     border: 1px solid #283747;
 }
+
+.signUp_user button {
+    width: 50%;
+    height: 40px;
+    color: #E5E7E9;
+    background: #283747;
+    border: 1px solid #E5E7E9;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin: 5px 0 25px 0;
+}
+
+.signUp_user button:hover{
+    color: #E5E7E9;
+    background: crimson;
+    border: 1px solid #283747;
+}

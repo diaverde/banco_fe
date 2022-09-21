@@ -13,21 +13,16 @@
     <header>
         <h1><a href="index.html">Banco UN</a></h1>
         <nav>
-            <a href="login.html"><button>Iniciar Sesión</button></a>
-            <a href="registro.html"><button>Registrarse</button></a>
+            <a href="index.html"><button>Salir</button></a>
         </nav>
     </header>
         
-    <div class="signUp_user">
-        <div class="container_signUp_user">
+    <div class="signUp_user" id="info">
+        <div class="container_signUp_user" id="formData">
             <h2>Apertura de cuenta</h2>
-            <form v-on:submit.prevent="processSignUp" >
-                <input type="number" name="userId" placeholder="Documento del usuario">
-                <br>
-                <input type="number" name="id" placeholder="Número de cuenta">
-                <br>
-                <input type="submit" value="Crear cuenta">
-            </form>
+            <p>¿Desea crear una nueva cuenta?</p>
+            <button id="newAccountBtn">Crear cuenta</button>
+            <button id="backBtn">Volver</button>
         </div>
     </div>
         
@@ -35,5 +30,6 @@
         <h2>Misión TIC 2022</h2>
     </footer>
 
+    <script src="js/registro_cuenta.js"></script>
 </body>
 </html>

@@ -49,19 +49,21 @@ function sendData(data) {
     fetch(loginURL, {
         method: "POST",
         headers: {
-            "Content-Type": "text/json"
+            "Content-Type": "application/json"
         },
         body: data
     })
         .then(response => {
-            if (response.ok || response.status == 400)
-                return response.text()
+            if (response.ok)
+                return response.text();
+            else if (response.status == 401)
+                return "No autorizado";
             else
                 throw new Error(response.status);
         })
         .then(data => {
             console.log("Resultado: " + data);
-            if (data.includes("Credenciales inválidas"))
+            if (data.includes("No autorizado"))
                 handleError("credenciales");
             else
                 handleSuccess(JSON.parse(data));
@@ -78,7 +80,11 @@ function handleSuccess(data) {
     successMesage.textContent = "Ingreso exitoso. Accediendo a su información...";
     const areaMensaje = document.getElementById("info");
     areaMensaje.appendChild(successMesage);
-    setTimeout(() => window.location.href = './cliente.html?id=' + data.id, 1000);
+    
+    window.location.href = './cliente.html?id=' + data.id;
+    sessionStorage.setItem('accessToken', data.access);
+    sessionStorage.setItem('refreshToken', data.refresh);
+    sessionStorage.setItem('clientId', data.id);
 }
 
 function handleError(errType) {
