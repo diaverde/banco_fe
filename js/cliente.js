@@ -50,6 +50,10 @@ function handleCustomer(cust) {
     document.querySelector("#cargando").remove();
     const infoCustomers = document.querySelector("#info-customers");
     infoCustomers.appendChild(custData);
+
+    sessionStorage.setItem("fname", cust.firstName);
+    sessionStorage.setItem("lname", cust.lastName);
+    sessionStorage.setItem("email", cust.email);
 }
 
 function handleError() {

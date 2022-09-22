@@ -6,11 +6,13 @@ function crear_cuenta() {
         userId: sessionStorage.getItem("clientId")
     };
     const dataToSend = JSON.stringify(userData);
+    const token = sessionStorage.getItem('accessToken');
     
     fetch(newAccountURL, {
         method: "POST",
         headers: {
-            "Content-Type": "text/json"
+            "Content-Type": "text/json",
+            "Authorization": "Bearer " + token
         },
         body: dataToSend
     })

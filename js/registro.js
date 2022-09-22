@@ -1,4 +1,5 @@
-const newCustomerURL = "https://mintic-banco-unal.herokuapp.com/customers/new";
+//const newCustomerURL = "https://mintic-banco-unal.herokuapp.com/customers/new";
+const newCustomerURL = "http://127.0.0.1:8000/customers/new";
 
 function validar_nombre_apellido(string) {
     let result = false;
