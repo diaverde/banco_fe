@@ -69,6 +69,12 @@ footer h2{
     text-align: center;
 }
 
+table th, td{
+    padding: 10px;
+    background-color: cyan;
+    text-align: center;
+}
+
 .signUp_user{
     margin: 30px;
     height: 100%;

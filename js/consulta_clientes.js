@@ -1,5 +1,5 @@
 //const getCustomersUrl = "http://127.0.0.1:8000/customers/";
-const getCustomersURL = "https://mintic-banco-unal.herokuapp.com/customers/";
+const getCustomersURL = "https://mintic-banco-unal.herokuapp.com/customers";
 
 let customers = [];
 
@@ -12,7 +12,7 @@ function getCustomers() {
         throw new Error(response.status);
     })
     .then(data => {
-      console.log("Datos: " + data);
+      //console.log("Datos: " + data);
       customers = JSON.parse(data);
       handleCustomers();
     })
@@ -24,17 +24,27 @@ function getCustomers() {
 function handleCustomers() {
   const divs = [];
   customers.forEach((cust,index) => {
-    const custData = document.createElement("div");
-    custData.innerHTML = 
-      `<h3>Cliente #${index+1}</h3>
-      <h4>Nombre: ${cust.firstName}</h4>
-      <h4>Apellido: ${cust.lastName}</h4>
-      <h4>Cédula: ${cust.id}</h4>`;
+    const custData = 
+      `<tr><td>${index+1}</td>
+      <td>${cust.firstName}</td>
+      <td>${cust.lastName}</td>
+      <td>${cust.id}</td></tr>`;
     divs.push(custData);
   });
   document.querySelector("#cargando").remove();
   const infoCustomers = document.querySelector("#info-customers");
-  divs.forEach(div => infoCustomers.appendChild(div));
+  
+  const table = document.createElement("table");
+  table.innerHTML = `
+    <tr>
+      <th>No. de Cliente</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Cédula</th>
+    </tr>`;
+  divs.forEach(div => table.innerHTML += div);
+  infoCustomers.appendChild(table);
+  //divs.forEach(div => infoCustomers.appendChild(div));
 }
 
 function handleError() {
